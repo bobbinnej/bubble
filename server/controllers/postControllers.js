@@ -1,5 +1,6 @@
 import PostsModel from '../models/postsModel.js';
 
+// get all posts
 export const getPosts =async (req,res) =>{
     try {
         const postModel = await PostsModel.find();
@@ -12,6 +13,17 @@ export const getPosts =async (req,res) =>{
 }
 
 
-export const createPost = (req,res)=>{
-    res.send("create post works");
+// create a post
+export const createPost = async (req,res)=>{
+     const post=req.body;
+     const newPost=PostsModel(post);
+
+  try {
+    await newPost.save();
+    res.status(201).json(newPost);
+   
+  } catch (error) {
+    res.status(409).json({message:error.message});
+    
+  }
 }
