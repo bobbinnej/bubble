@@ -3,8 +3,17 @@ import jobhuntLogo from './images/jobhuntLogo.png';
 import useStyles from './styles';
 import Posts from './components/PostsFolder/Posts';
 import Form from './components/FormFolder/Form';
+import {getPosts} from './actions/postsActions';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 function App() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
+  
   return (
    <Container maxWidth="lg">
       <AppBar className={classes.appBar} position="absolute" color="inherit">
