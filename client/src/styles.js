@@ -5,8 +5,8 @@ export default makeStyles(()=>({
         display:'flex',
         flexDirection:'row',
         alignItems:'center',
-        margin:'0',
         justifyContent:'start',
+        
         
        
     },

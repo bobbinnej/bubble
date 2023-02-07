@@ -16,10 +16,10 @@ function App() {
   
   return (
    <Container maxWidth="lg">
-      <AppBar className={classes.appBar} position="absolute" color="inherit">
+      {/* <AppBar className={classes.appBar} position="absolute" color="inherit">
         <Typography className={classes.title} variant="h4" align="center">Job Hunt Ls</Typography>
         <img className={classes.logo} src={jobhuntLogo} alt="job hunt ls" height="70"/>
-      </AppBar>
+      </AppBar> */}
 
       <Grow in>
         <Container>
