@@ -1,8 +1,24 @@
-import React from 'react'
+import React from 'react';
+import{Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
+import { useStyles} from './styles';
+import moment from 'moment';
 
-function Post() {
+function Post({post}) {
+  const classes=useStyles();
   return (
-    <div>Post</div>
+   <Card className={classes.card}>
+     <CardMedia className={classes.media} image={post.selectedFile} title={post.title}/>
+     <div className={classes.overlay}>
+       <Typography variant="h6">{post.creator}</Typography>
+       <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
+     </div>
+     <div className={classes.overlay2}>
+      <Button style={{color: 'white'}} size="small" onClick={()=>{}}>
+        <MoreHorizIcon fontSize="default"/>
+      </Button>
+     </div>
+     <div className={classes.details}></div>
+   </Card>
   )
 }
 
