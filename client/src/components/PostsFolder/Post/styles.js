@@ -38,10 +38,14 @@ export default makeStyles({
       details: {
         display: 'flex',
         justifyContent: 'space-between',
-        margin: '20px',
+        margin:'12px'
       },
       title: {
-        padding: '0 16px',
+        fontSize:'16px',
+        fontWeight:'bold'
+      },
+      message:{
+        fontSize:'14px'
       },
       cardActions: {
         padding: '0 16px 8px 16px',

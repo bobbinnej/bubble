@@ -1,7 +1,12 @@
 import React from 'react';
 import{Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
-import { useStyles} from './styles';
+import useStyles from './styles';
 import moment from 'moment';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import ThumbDownIcon from '@material-ui/icons/ThumbDown';
+import DeleteIcon from '@material-ui/icons/Delete';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+
 
 function Post({post}) {
   const classes=useStyles();
@@ -17,7 +22,31 @@ function Post({post}) {
         <MoreHorizIcon fontSize="default"/>
       </Button>
      </div>
-     <div className={classes.details}></div>
+     <div className={classes.details}>
+         <Typography varaint="body2" color="textSecondary">{post.tags.map((tag)=>`#${tag} `)}</Typography>       
+     </div>
+
+     <CardContent>
+     <Typography className={classes.title} variant="h5" gutterBottom>{post.title}</Typography>
+
+     <Typography className={classes.message} variant="h6" gutterBottom>{post.message}</Typography>
+     </CardContent>
+
+     <CardActions className={classes.CardActions}>
+       <Button size="small" color="primary" onClick={()=>{}}>
+          <ThumbUpIcon fontSize="small"/>
+          {post.likeCount}
+       </Button>
+
+       <Button size="small" color="primary" onClick={()=>{}}>
+          <ThumbDownIcon fontSize="small"/>
+          {post.dislikeCount}
+       </Button>
+
+       <Button size="small" color="primary" onClick={()=>{}}>
+         <DeleteIcon fontSize="small"/>
+       </Button>
+     </CardActions>
    </Card>
   )
 }
