@@ -23,7 +23,7 @@ function Post({post}) {
       </Button>
      </div>
      <div className={classes.details}>
-         <Typography varaint="body2" color="textSecondary">{post.tags.map((tag)=>`#${tag} `)}</Typography>       
+         <Typography varaint="body2" color="textSecondary">{post.tags.map((tag)=>`#${tag}`)}</Typography>       
      </div>
 
      <CardContent>
