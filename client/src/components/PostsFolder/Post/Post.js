@@ -3,7 +3,6 @@ import{Card, CardActions, CardContent, CardMedia, Button, Typography } from '@ma
 import useStyles from './styles';
 import moment from 'moment';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
-import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
@@ -37,12 +36,6 @@ function Post({post}) {
           <ThumbUpIcon fontSize="small"/>
           {post.likeCount}
        </Button>
-
-       <Button size="small" color="primary" onClick={()=>{}}>
-          <ThumbDownIcon fontSize="small"/>
-          {post.dislikeCount}
-       </Button>
-
        <Button size="small" color="primary" onClick={()=>{}}>
          <DeleteIcon fontSize="small"/>
        </Button>
