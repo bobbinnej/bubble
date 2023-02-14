@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from "react-file-base64";
 import useStyles from "./styles";
-import {useDispatch} from 'react-redux';
-import { createPost } from "../../actions/postsActions";
+import {useDispatch, useSelector} from 'react-redux';
 
-function Form() {
+import { createPost, updatePost } from "../../actions/postsActions";
+
+function Form(currentId, setCurrentId) {
   const classes = useStyles();
+  const post = useSelector((state)=>currentId ? state.postsReducer.find((p)=>p._id===currentId):null);
   const [postData, setPostData] = useState({
     creator: "",
     title: "",
@@ -19,7 +21,12 @@ function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createPost(postData));
+    if(currentId){
+      dispatch(updatePost(currentId, postData));
+    }else{
+      dispatch(createPost(postData));
+    }
+    
   };
   const clear = () =>{};
   return (
